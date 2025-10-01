@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners -->
+    <meta name="description" content="ReSeek: A Self-Correcting Framework for Search Agents with Instructive Rewards">
+    <meta property="og:title" content="ReSeek: A Self-Correcting Framework for Search Agents" />
+    <meta property="og:description"
+        content="A novel self-correcting framework for training search agents with JUDGE action and dense instructive rewards" />
+    <meta property="og:url" content="https://reseek-project.github.io/" />
+    <meta property="og:image" content="static/images/social_preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:title" content="ReSeek: A Self-Correcting Framework for Search Agents">
+    <meta name="twitter:description"
+        content="A novel self-correcting framework for training search agents with JUDGE action and dense instructive rewards">
+    <meta name="twitter:image" content="static/images/social_preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="search agents, reinforcement learning, self-correction, LLM, multi-hop reasoning">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ReSeek</title>
+    <link rel="icon" href="static/images/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title">ReSeek: A Self-Correcting Framework for Search Agents
+                            with Instructive Rewards</h1>
+                        <div class="is-size-5 publication-authors">
+                            <!-- Paper authors -->
+                            <span class="author-block">Shiyu Li<sup>1</sup>,</span>
+                            <span class="author-block">Yang Tang<sup>1</sup>,</span>
+                            <span class="author-block">Yifan Wang<sup>1,2</sup>,</span>
+                            <span class="author-block">Peiming Li<sup>1</sup>,</span>
+                            <span class="author-block">Xi Chen<sup>1*</sup></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Basic Algorithm Center, PCG, Tencent</span><br>
+                            <span class="author-block"><sup>2</sup>Tsinghua Shenzhen International Graduate School,
+                                Tsinghua University</span><br>
+                        </div>
+
+                        <!-- Arxiv PDF link -->
+                        <span class="link-block">
+                            <a href="https://github.com/TencentBAC/ReSeek" target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                        </span>
+
+                        <!-- Github link -->
+                        <span class="link-block">
+                            <a href="https://github.com/TencentBAC/ReSeek" target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>Code</span>
+                            </a>
+                        </span>
+                        <span class="link-block">
+                        <a href="https://huggingface.co/spaces/TencentBAC/SearchAgent_Leaderboard" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <img src="static/images/leaderboard.png" alt="Search agent leaderboard" style="width: 20px; height: 20px;"/>
+                        </span>
+                            <span>Leaderboard</span>
+                        </a>
+                        </span>
+                        <span class="link-block">
+                            <a href="https://huggingface.co/datasets/TencentBAC/FictionalHot" target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-database"></i>
+                                </span>
+                                <span>Dataset</span>
+                            </a>
+                        </span>
+                        <span class="link-block">
+                        <a href="https://huggingface.co/TencentBAC/ReSeek-qwen2.5-3b-em-grpo" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <img src="static/images/hf-logo.png" alt="Hugging Face Logo" style="width: 20px; height: 20px;"/>
+                        </span>
+                            <span>Model</span>
+                        </a>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Search agents powered by Large Language Models (LLMs) have demonstrated significant
+                            potential in tackling knowledge-intensive tasks.
+                            Reinforcement learning (RL) has emerged as a powerful paradigm for training these agents to
+                            perform complex, multi-step reasoning.
+                            However, prior RL-based methods often rely on sparse or rule-based rewards, which can lead
+                            agents to commit to suboptimal or erroneous reasoning paths without the ability to recover.
+                            To address these limitations, we propose <b style="color:#615ced;">ReSeek</b>, a novel
+                            self-correcting framework for training search agents.
+                            Our framework introduces a self-correction mechanism that empowers the agent to dynamically
+                            identify and recover from erroneous search paths during an episode.
+                            By invoking a special <b style="color:#615ced;">JUDGE</b> action, the agent can judge the
+                            information and re-plan its search strategy.
+                            To guide this process, we design a dense, instructive process reward function, which
+                            decomposes into a correctness reward for retrieving factual information and a utility reward
+                            for finding information genuinely useful for the query.
+                            Furthermore, to mitigate the risk of data contamination in existing datasets, we introduce <b style="color:#615ced;">FictionalHot</b>, a new and challenging benchmark with recently curated questions requiring complex reasoning. Being intuitively reasonable and practically simple, extensive experiments show that agents trained with ReSeek significantly outperform SOTA baselines in task success rate and path faithfulness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- End paper abstract -->
+
+    <section class="section" id="Overview">
+        <div class="container is-max-desktop content">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-five-fifths">
+                    <h2 class="title is-3">🌟Overview</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            🔍 We propose ReSeek, a novel reinforcement learning framework that enables search agents to
+                            dynamically identify and recover from erroneous search paths during an episode through a
+                            self-correction mechanism.
+                        </p>
+                        <p>
+                            🤖 Through a special JUDGE action, agents can evaluate retrieved information and re-plan
+                            their search strategy. We design a dense, instructive reward function that provides
+                            fine-grained feedback on both factual correctness and contextual utility.
+                        </p>
+                        <p>
+                            📊 We introduce Hot Benchmark, an evaluation principle with FictionalHot as a contamination-resistant benchmark.
+                            Extensive experiments show that ReSeek significantly outperforms SOTA baselines across
+                            multiple datasets, particularly excelling in complex multi-hop reasoning scenarios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework -->
+    <section class="section" id="Framework">
+        <div class="container is-max-desktop content">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-five-fifths">
+                    <h2 class="title is-3">🔍 ReSeek Framework</h2>
+                    <img src="static/images/framework.png" width="80%">
+                    <div class="content has-text-justified">
+
+                        <p>
+                            <b style="color:#615ced;">Self-Correction with JUDGE Action</b> We introduce a special JUDGE
+                            action that enables dynamic self-correction. The agent learns to disregard uninformative
+                            steps when formulating its next action:
+                        </p>
+                        <p>
+                            \[
+                            a_{t+1} \sim \pi(\cdot | \mathcal{C}_t) \quad \text{where} \quad \mathcal{C}_t = \tau_{t-1}
+                            \oplus \mathbb{I}(j_t \neq \text{'bad'}) \cdot o_t
+                            \]
+                        </p>
+                        <p>
+                            where the context \(\mathcal{C}_t\) is assembled on-the-fly. A favorable judgment appends
+                            \(o_t\) and enriches the evidence available to the policy. An unfavorable judgment omits it,
+                            enabling lightweight self-correction.
+                        </p>
+
+                        <p>
+                            <b style="color:#615ced;">Dense Instructive Reward Function</b> We design a reward function
+                            that provides step-by-step feedback for the JUDGE action:
+                        </p>
+                        <p>
+                            \[
+                            R_{judge}(j_t, j^*_t) =
+                            \begin{cases}
+                            +R_{match} & \text{if } j_t = j^*_t \\
+                            -R_{mismatch} & \text{if } j_t \neq j^*_t
+                            \end{cases}
+                            \]
+                        </p>
+                        <p>
+                            The ideal judgment \(j^*_t\) is determined by computing a utility score \(s_t =
+                            \texttt{rerank\_score}(o_t, \text{GT})\) and mapping it to discrete labels using a
+                            predefined threshold.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Framework -->
+
+    <!-- Hot Benchmark -->
+    <section class="section" id="HotBenchmark">
+        <div class="container is-max-desktop content">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-five-fifths">
+                    <h2 class="title is-3">🔥 Hot Benchmark</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            <b style="color:#615ced;">Experimental Setup Diversity in Prior Work</b> To address inconsistencies in experimental settings that currently hinder robust comparisons in search agent evaluation, we analyze the experimental setups of representative works. 
+                            The table below highlights the diversity in test sets, training sets, corpora, and evaluation metrics, which impedes direct comparisons between different papers. 
+                        </p>
+                        
+                        <p>
+                            <b style="color:#615ced;">Test Set Variations:</b> Different works use different combinations of datasets:
+                            <ul>
+                                <li><b>Set A (Broad):</b> All 7 datasets (NQ, TriviaQA, PopQA, HotpotQA, 2Wiki, Musique, Bamboogle) - covering both single-hop and multi-hop QA</li>
+                                <li><b>Set B (Multi-hop Focus):</b> Only 4 multi-hop datasets (HotpotQA, 2Wiki, Musique, Bamboogle) - focusing specifically on complex reasoning tasks</li>
+                            </ul>
+                            This variation makes it difficult to compare results across different papers, as some methods are evaluated on broader datasets while others focus on specific subsets.
+                        </p>
+                        
+                        
+                        <img src="static/images/eval_prior.png" width="80%" style="margin: 20px auto; display: block;">
+
+                        <p>
+                            <b style="color:#615ced;">FictionalHot Benchmark</b> To address data contamination, we
+                            introduce FictionalHot, a benchmark with fictional entities that ensures agents rely solely
+                            on procedural reasoning rather than memorization. The construction follows a three-step
+                            pipeline: sampling seed questions, fictionalizing entities with GPT-5, and generating
+                            synthetic Wikipedia-style documents.
+                        </p>
+                        <img src="static/images/datapipe.png" width="60%" style="margin: 20px auto; display: block;">
+
+                        <p>
+                            Beyond this, we advocate for <b style="color:#615ced;">Hot Benchmark</b>, an evaluation principle to address inconsistencies in experimental settings that currently hinder robust comparisons. 
+                            Hot Benchmark specifies a disciplined protocol for corpora, test sets, and metrics, with FictionalHot serving as a contamination-resistant stress test. 
+                        </p>
+                        
+                        <p>
+                            <b style="color:#615ced;">Hot Benchmark Standardized Protocol:</b>
+                        </p>
+                        <ul>
+                            <li><b>Test Sets:</b> All 7 datasets (Set A) - NQ, TriviaQA, PopQA, HotpotQA, 2Wiki, Musique, Bamboogle</li>
+                            <li><b>Training Set:</b> Unified training set merging NQ and HotpotQA training splits</li>
+                            <li><b>Corpus:</b> 2018 Wikipedia corpus (wiki-18) for reproducible evaluation</li>
+                            <li><b>Metrics:</b> Exact Match (EM) as the primary metric for fair comparison</li>
+                            <li><b>Retrieval:</b> Top-k=3 with maximum T=4 tool-use turns per question</li>
+                            <li><b>Embeddings:</b> E5 embeddings for search backend</li>
+                            <li><b>Models:</b> Qwen2.5-3B/7B-Instruct as backbone models</li>
+                        </ul>
+                        
+                        <p>
+                            The complete Hot Benchmark combines the original seven benchmarks with FictionalHot samples, creating a comprehensive evaluation suite that enables cleaner, apples-to-apples comparison of search agent capabilities. 
+                            We hope this principle will be adopted by the community to establish a more reproducible, transparent, and comparable foundation for measuring progress in search agents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hot Benchmark -->
+
+    <!-- MathJax script for rendering LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- Experiments -->
+    <section class="section" id="Experiments">
+        <div class="container is-max-desktop content">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-five-fifths">
+                    <h2 class="title is-3">📊 Experiments</h2>
+
+                    <!-- Main Results Table -->
+                    <div class="content has-text-justified">
+                        <p>
+                            <b style="color:#615ced;">Main Results</b>
+                            We evaluate ReSeek across eight open-domain QA benchmarks spanning single- and multi-hop settings, using Qwen2.5-7B and 3B backbone networks:
+                        </p>
+                    </div>
+
+                    <img src="static/images/main_result.png" width="90%" style="margin: 20px 0;">
+
+                    <div class="content has-text-justified">
+                        <p>
+                            <strong>ReSeek achieves SOTA performance.</strong>
+                            ReSeek attains the highest average accuracy: 0.377 for 7B compared to 0.346 for ZeroSearch.
+                            It consistently excels on multi-hop benchmarks, notably HotpotQA and Bamboogle, highlighting
+                            the benefits of our self-correction paradigm.
+                        </p>
+                        <p>
+                            <strong>Hot Benchmark isolates reasoning ability from data leakage.</strong>
+                            On FictionalHot (our contamination-resistant stress test), ReSeek scores 0.061 while Direct Inference scores ~0.001. This pattern
+                            indicates likely training-data overlap in standard datasets, whereas Hot Benchmark provides a
+                            cleaner measure of genuine reasoning ability.
+                        </p>
+                    </div>
+
+
+                    <!-- Case Study -->
+                    <div class="content has-text-justified">
+                        <p>
+                            <b style="color:#615ced;">Case Study: Multi-hop Reasoning</b>
+                            We show a comparison between ReSeek and baseline methods on the question "When was the
+                            creator of Saddle Rash born?"
+                        </p>
+
+                        <p>
+                            <strong>ReSeek demonstrates robust self-correction.</strong>
+                            After the initial search, the JUDGE action correctly identifies insufficient information,
+                            prompting a second targeted search that successfully retrieves the correct birth date.
+                        </p>
+                    </div>
+                    
+                    <img src="static/images/cases.png" width="80%" style="margin: 20px auto; display: block;">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Experiments -->
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{li2025reseek,
+  title={ReSeek: A Self-Correcting Framework for Search Agents with Instructive Rewards},
+  author={Li, Shiyu and Tang, Yang and Wang, Yifan and Li, Peiming and Chen, Xi},
+  journal={ICLR},
+  year={2026},
+  url={https://anonymous.4open.science/r/Re-Search-5A0F}
+}</code></pre>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This page was built using the <a
+                                href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                            You are free to borrow the source code of this website, we just ask that you link back to
+                            this page in the footer.
+                            <br> This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
