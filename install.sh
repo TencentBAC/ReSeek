@@ -1,12 +1,11 @@
-# cd /group/40077/shyuli/gits/vllm
 # pip install -r requirements-build.txt
 # VLLM_TARGET_DEVICE=empty pip install -e .
 
-cd /group/40077/shyuli/gits/vllm-ascend
+cd vllm-ascend
 export COMPILE_CUSTOM_KERNELS=1
 sh ascend_fix.sh
 
-cd /group/40077/shyuli/gits/verl
+cd ReSeek
 pip install -r requirements-npu.txt
 pip install -e .
 

@@ -49,7 +49,7 @@ class EmbeddingClient:
 
     def compute_similarity(self, queries: List[str], documents: List[str], prompt_name: Optional[str] = None):
         """计算查询和文档之间的相似度"""
-        payload = {"text_1": queries, "text_2": documents, "model":"/group/40077/shyuli/models/embedding/bge-reranker-v2-m3"}
+        payload = {"text_1": queries, "text_2": documents, "model":"embedding/bge-reranker-v2-m3"}
         try:
             response = requests.post(
                 f"{self.base_url}/score", 

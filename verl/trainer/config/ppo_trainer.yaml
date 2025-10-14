@@ -1085,7 +1085,7 @@ trainer:
   del_local_ckpt_after_load: False
 
   # Default local directory for saving checkpoints
-  default_local_dir: /group/40077/shyuli/models/qwen/Qwen2.5-3B-Instruct
+  default_local_dir: qwen/Qwen2.5-3B-Instruct
 
   # Maximum number of actor checkpoints to keep
   max_actor_ckpt_to_keep: null

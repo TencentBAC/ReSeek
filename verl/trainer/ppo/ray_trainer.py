@@ -751,7 +751,6 @@ class RayPPOTrainer:
             }
             print(f"test_gen_batch meta info: {test_gen_batch.meta_info}")
 
-            # added by shyuli
             with _timer("step", timing_raw):
                 first_input_ids = test_gen_batch.batch["input_ids"][:, -gen_config.max_start_length :].clone()
                 with _timer("gen", timing_raw):
@@ -760,7 +759,6 @@ class RayPPOTrainer:
                         gen_batch=test_gen_batch,
                         initial_input_ids=first_input_ids,
                     )
-            # end of added by shyuli
 
             # pad to be divisible by dp_size
             # modify here
