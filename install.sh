@@ -9,7 +9,6 @@ cd ReSeek
 pip install -r requirements-npu.txt
 pip install -e .
 
-set_proxy
 pip install torchvision==0.20.1+cpu --index-url https://download.pytorch.org/whl/cpu
 
 
