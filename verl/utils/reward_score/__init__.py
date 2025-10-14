@@ -36,7 +36,7 @@ def default_compute_score(
         sandbox_fusion_url (str, optional): URL for sandbox fusion. Defaults to None.
         concurrent_semaphore (object, optional): Semaphore for concurrent execution. Defaults to None.
         memory_limit_mb (int, optional): Memory limit in MB. Defaults to None.
-        num_examine (int, optional): Number of examine batches. When 1 (validation), uses original searchR1 function; 
+        num_examine (int, optional): Number of examine batches. When 1 (validation), uses original ReSeek function;
                                    otherwise uses modified s4 function. Defaults to None.
 
     Returns:
@@ -96,24 +96,26 @@ def default_compute_score(
 
         res = geo3k.compute_score(solution_str, ground_truth)
     elif data_source in [
-        "searchR1_nq",
-        "searchR1_triviaqa",
-        "searchR1_popqa",
-        "searchR1_hotpotqa",
-        "searchR1_2wikimultihopqa",
-        "searchR1_musique",
-        "searchR1_bamboogle",
-        "searchR1_fictional",
+        "ReSeek_nq",
+        "ReSeek_triviaqa",
+        "ReSeek_popqa",
+        "ReSeek_hotpotqa",
+        "ReSeek_2wikimultihopqa",
+        "ReSeek_musique",
+        "ReSeek_bamboogle",
+        "ReSeek_fictional",
     ]:
-        # 根据 num_examine 参数选择不同的计算函数
+        # Select different computation functions based on num_examine parameter
         if num_examine > 0:
-            # 验证时使用原始函数
+            # Use original function during validation
             from . import search_r1_like_qa_em
+
             res = search_r1_like_qa_em.compute_score(solution_str, ground_truth)
         else:
-            # 训练时使用修改过的函数
-            from . import search_r1_like_qa_em_s4
-            res = search_r1_like_qa_em_s4.compute_score(solution_str, ground_truth)
+            # Use modified function during training
+            from . import reseek_rerank
+
+            res = reseek_rerank.compute_score(solution_str, ground_truth)
 
     else:
         raise NotImplementedError(f"Reward function is not implemented for {data_source=}")

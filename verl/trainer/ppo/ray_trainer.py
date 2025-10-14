@@ -62,7 +62,7 @@ from verl.utils.seqlen_balancing import get_seqlen_balanced_partitions, log_seql
 from verl.utils.torch_functional import masked_mean
 from verl.utils.tracking import ValidationGenerationsLogger
 
-from scripts.runs.reseek.reseek_search.llm_agent.generation import LLMGenerationManager, GenerationConfig
+from search.llm_agent.generation import LLMGenerationManager, GenerationConfig
 
 
 WorkerType = Type[Worker]
