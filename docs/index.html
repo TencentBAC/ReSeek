@@ -142,8 +142,8 @@
                             By invoking a special <b style="color:#615ced;">JUDGE</b> action, the agent can judge the
                             information and re-plan its search strategy.
                             To guide this process, we design a dense, instructive process reward function, which
-                            decomposes into a correctness reward for retrieving factual information and a utility reward
-                            for finding information genuinely useful for the query.
+                            combines an answer correctness reward for task completion with a self-correction reward
+                            that trains the agent to judge the utility of retrieved information.
                             Furthermore, to mitigate the risk of data contamination in existing datasets, we introduce <b style="color:#615ced;">FictionalHot</b>, a new and challenging benchmark with recently curated questions requiring complex reasoning. Being intuitively reasonable and practically simple, extensive experiments show that agents trained with ReSeek significantly outperform SOTA baselines in task success rate and path faithfulness.
                         </p>
                     </div>
@@ -360,11 +360,11 @@
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
-            <pre><code>@article{li2025reseek,
+            <pre><code>@inproceedings{li2026reseek,
   title={ReSeek: A Self-Correcting Framework for Search Agents with Instructive Rewards},
   author={Li, Shiyu and Tang, Yang and Wang, Yifan and Li, Peiming and Chen, Xi},
-  journal={arXiv preprint arXiv:2510.00568},
-  year={2025}
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning},
+  year={2026}
 }</code></pre>
         </div>
     </section>
