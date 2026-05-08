@@ -16,7 +16,7 @@
 
 
 <p align="center">
-  <i><b>Shiyu Li, Yang Tang, Yifan Wang, Peiming Li, Xi Chen</b></i><br>
+  <i><b>Shiyu Li, Yifan Wang, Peiming Li, Zheng Wei, Yang Tang</b></i><br>
   <i>Basic Algorithm Center, PCG, Tencent</i><br>
   <i>Tsinghua Shenzhen International Graduate School, Tsinghua University</i>
 </p>
@@ -226,7 +226,7 @@ If this work is helpful, please kindly cite as:
 ```bibtex
 @inproceedings{li2026reseek,
   title={ReSeek: A Self-Correcting Framework for Search Agents with Instructive Rewards},
-  author={Li, Shiyu and Tang, Yang and Wang, Yifan and Li, Peiming and Chen, Xi},
+  author={Li, Shiyu and Wang, Yifan and Li, Peiming and Wei, Zheng and Tang, Yang},
   booktitle={Proceedings of the 43rd International Conference on Machine Learning},
   year={2026}
 }
