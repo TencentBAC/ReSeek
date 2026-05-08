@@ -25,6 +25,7 @@
 
 # 🔥 News
 
+- **[2026.5.1]** ReSeek has been accepted to ICML 2026! 🎉
 - **[2025.10.14]** Released the initial codebase.
 - **[2025.10.1]** Released the dataset, leaderboard, model and paper.
 
@@ -223,11 +224,11 @@ If you have any questions, feel free to reach out:
 If this work is helpful, please kindly cite as:
 
 ```bibtex
-@article{li2025reseek,
+@inproceedings{li2026reseek,
   title={ReSeek: A Self-Correcting Framework for Search Agents with Instructive Rewards},
   author={Li, Shiyu and Tang, Yang and Wang, Yifan and Li, Peiming and Chen, Xi},
-  journal={arXiv preprint arXiv:2510.00568},
-  year={2025}
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning},
+  year={2026}
 }
 ```
 
